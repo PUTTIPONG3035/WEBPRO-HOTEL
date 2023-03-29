@@ -6,6 +6,7 @@ import cors from "cors";
 
 //import routes
 import Router from "./routes/routes.js";
+import Admin from "./routes/create.js"
 
 //init express
 const app = express();
@@ -18,6 +19,7 @@ app.use(cors());
 
 //use router
 app.use(Router);
+app.use(Admin);
 
 //PORT
 app.listen(5000, () => {

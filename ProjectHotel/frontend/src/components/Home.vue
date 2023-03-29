@@ -154,26 +154,28 @@
         </section>
 
 
-
-
+   
+        
         <!-- content -->
-        <div class="container my-5">
-            <div id="">
+        <div class="container my-5" v-for="room in rooms">
+            
+            <div id="room.room_id">
                 <div class="tile is-ancestor my-5 has-background-danger-light">
                     <div class="tile is-4 is-vertical is-parent">
                         <div class="tile is-child">
-                            <img src="" alt="" width="100%">
-                            <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></i>
-                            <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></i>
-                            <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></i>
-                            <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></i>
-                            <i class="fa fa-star mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></i>
+                            
+                            <img src="../assets/banner.jpg" alt="" style="width: 100%;">
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></fa>
+                            <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(188, 188, 165)"></fa>
                         </div>
                     </div>
                     <div class="tile is-parent is-vertical">
                         <div class="tile is-child">
-                            <p class="title"></p>
-                            <p class="subtitle"></p>
+                            <p class="title">{{room.room_type}}</p>
+                            <p class="subtitle">{{room.description}}</p>
                         </div>
                         <!-- services -->
                         <hr>
@@ -247,7 +249,7 @@ export default {
   
   data() {
     return {
-      items: [],
+      rooms: [],
       modal: true,
       isActive_Sign_in: false,
       isActive_Sign_up: false,
@@ -258,13 +260,25 @@ export default {
       sign_dob: '',
       sign_email: '',
       sign_username: '',
-      sign_pass: ''
+      sign_pass: '',
+      image: 'https://hips.hearstapps.com/hmg-prod/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=1200:*'
     };
   },
   created() {
-    // this.getProducts();
+    this.getRooms();
   },
   methods: {
+    // get all rooms
+    async getRooms(){
+        try{
+            const response = await axios.get('http://localhost:5000/room')
+            this.rooms = response.data;
+            console.log(this.rooms);
+
+        }catch(err){
+            console.log(err);
+        }
+    },
     //get all products
     // async getProducts() {
     //   try {

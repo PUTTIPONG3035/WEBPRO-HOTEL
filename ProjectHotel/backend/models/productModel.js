@@ -1,7 +1,18 @@
 //import connection
 import db from "../config/database.js";
 
-
+//get all rooms
+export const getRooms = (result) =>{
+  db.query("SELECT * FROM roomdetail", (err, results)=> {
+    if(err){
+      console.log(err);
+      result(err, null);
+    }
+    else{
+      result(null, results);
+    }
+  })
+}
 
 //get all products
 export const getProducts = (result) => {

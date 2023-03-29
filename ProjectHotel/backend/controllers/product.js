@@ -5,7 +5,20 @@ import {
   insertProduct,
   updateProductById,
   deleteProductById,
+  getRooms,
 } from "../models/productModel.js";
+
+//get all rooms
+export const showRooms = (req, res) =>{
+   getRooms((err, results) =>{
+    if(err){
+      res.send(err);
+    }
+    else{
+      res.json(results)
+    }
+   })
+}
 
 //get all products
 export const showProducts = (req, res) => {
