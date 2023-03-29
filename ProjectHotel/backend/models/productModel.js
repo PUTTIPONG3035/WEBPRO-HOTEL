@@ -1,6 +1,8 @@
 //import connection
 import db from "../config/database.js";
 
+
+
 //get all products
 export const getProducts = (result) => {
   db.query("SELECT * FROM product", (err, results) => {
