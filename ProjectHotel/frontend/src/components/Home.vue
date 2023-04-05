@@ -164,7 +164,7 @@
                     <div class="tile is-4 is-vertical is-parent">
                         <div class="tile is-child">
                             
-                            <img src="../assets/banner.jpg" alt="" style="width: 100%;">
+                            <img src="../assets/standard.jpg" alt="" style="width: 100%;">
                             <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
                             <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
                             <fa icon="star" class=" mt-3" style="font-size:40px ;color:rgb(244, 247, 76)"></fa>
